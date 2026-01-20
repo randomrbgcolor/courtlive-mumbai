@@ -1,3 +1,7 @@
+// src/utils/constants.ts
+
+import { CourtStatus } from './types';  // ✅ Add this line at the top
+
 export const COURT_STATUS_OPTIONS: CourtStatus[] = [
   'IN_SESSION',
   'RECESS',
