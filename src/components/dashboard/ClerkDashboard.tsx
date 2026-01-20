@@ -49,7 +49,7 @@ export default function ClerkDashboard() {
         { event: 'UPDATE', schema: 'public', table: 'courtrooms' },
         (payload) => {
           if (assignedRoom && payload.new.id === assignedRoom.id) {
-            setAssignedRoom(payload.new);
+             setAssignedRoom(payload.new as Courtroom);  // ✅ Add "as Courtroom"
           }
         }
       )

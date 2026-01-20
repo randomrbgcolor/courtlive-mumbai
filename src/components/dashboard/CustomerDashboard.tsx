@@ -51,7 +51,7 @@ export default function CustomerDashboard() {
           if (payload.eventType === 'UPDATE') {
             setCourtrooms((prev) =>
               prev.map((cr) =>
-                cr.id === payload.new.id ? payload.new : cr
+                cr.id === payload.new.id ? (payload.new as Courtroom) : cr  // ✅
               )
             );
           }
