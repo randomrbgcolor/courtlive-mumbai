@@ -1,8 +1,6 @@
-
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { createClient } from '@/utils/supabase/client';
 
 export default function LoginForm() {
@@ -10,7 +8,6 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const router = useRouter();
   const supabase = createClient();
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -27,7 +24,8 @@ export default function LoginForm() {
       setError(error.message);
       setLoading(false);
     } else {
-      router.push('/dashboard');
+      // Force full page navigation instead of client-side routing
+      window.location.href = '/dashboard';
     }
   };
 
@@ -77,4 +75,3 @@ export default function LoginForm() {
     </form>
   );
 }
-
